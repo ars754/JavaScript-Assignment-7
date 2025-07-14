@@ -1,0 +1,38 @@
+/* Apply a background and base font style */
+body {
+    font-family: 'Caveat', cursive;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+}
+/* Style the main heading */
+h1 {
+    color: #004080;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+/* Add a styled horizontal rule */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #0066cc;
+    width: 60%;
+    margin: 20px auto;
+}
+/* Style the link to the PDF */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+a:hover {
+    background-color: #004080;
+}
