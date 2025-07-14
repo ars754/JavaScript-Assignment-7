@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JS Iteration Assignment Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <style>
+    /* Global body styling */
+    body {
+        font-family: 'Caveat', cursive;
+        background-color: #f4f9ff;
+        padding: 30px;
+        margin: 0;
+        text-align: center;
+        color: #333;
+    }
+    /* Heading styles */
+    h1 {
+        color: #0066cc;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+    /* Input field */
+    input[type="number"] {
+        font-size: 1em;
+        padding: 10px;
+        width: 200px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: border 0.3s;
+    }
+    input[type="number"]:focus {
+        border-color: #007acc;
+    }
+    /* Buttons */
+    button {
+        margin: 8px;
+        padding: 10px 15px;
+        font-size: 1em;
+        background-color: #007acc;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #005fa3;
+    }
+    /* Output area */
+    pre#output {
+        margin-top: 30px;
+        padding: 15px;
+        background: #ffffff;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        font-size: 1.1em;
+        color: #222;
+        white-space: pre-wrap;
+    }
+</style>
+</head>
+<body>
+  <h1>JS Iteration Assignment</h1>
+  <input type="number" id="inputVal" placeholder="Enter a number" />
+  <br/>
+  <button onclick="q1()">Q1. Count Digits</button>
+  <button onclick="q2()">Q2. Count Fives</button>
+  <button onclick="q3()">Q3. Sum of Even Numbers</button>
+  <button onclick="q4()">Q4. Sum of Digits</button>
+  <button onclick="q5()">Q5. Print Odds</button>
+  <button onclick="q6()">Q6. Print Pattern</button>
+  <button onclick="q7()">Q7. Prime Check</button>
+  <button onclick="q8()">Q8. Print Numbers</button>
+  <button onclick="q9()">Q9. Print Table</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    function getInput() {
+      return parseInt(document.getElementById('inputVal').value);
+    }
+
+    function q1() {
+      const N = getInput();
+      document.getElementById('output').textContent = N.toString().length;
+    }
+
+    function q2() {
+      const N = getInput();
+      const count = N.toString().split('').filter(ch => ch === '5').length;
+      document.getElementById('output').textContent = count;
+    }
+
+    function q3() {
+      const N = getInput();
+      let sum = 0;
+      for (let i = 2; i <= N; i += 2) sum += i;
+      document.getElementById('output').textContent = sum;
+    }
+
+    function q4() {
+      const N = getInput();
+      let sum = N.toString().split('').reduce((acc, val) => acc + parseInt(val), 0);
+      document.getElementById('output').textContent = sum;
+    }
+
+    function q5() {
+      const N = getInput();
+      let result = "2 ";
+      for (let i = 3; i <= N; i++) if (i % 2 !== 0) result += i + " ";
+      document.getElementById('output').textContent = result.trim();
+    }
+
+    function q6() {
+      const N = getInput();
+      let pattern = "";
+      for (let i = 1; i <= N; i++) pattern += "*".repeat(i) + "\n";
+      document.getElementById('output').textContent = pattern;
+    }
+
+    function q7() {
+      const N = getInput();
+      if (N < 2) return document.getElementById('output').textContent = "NO";
+      for (let i = 2; i <= Math.sqrt(N); i++) {
+        if (N % i === 0) return document.getElementById('output').textContent = "NO";
+      }
+      document.getElementById('output').textContent = "YES";
+    }
+
+    function q8() {
+      const N = getInput();
+      let output = "";
+      for (let i = 1; i <= N; i++) output += i + " ";
+      document.getElementById('output').textContent = output.trim();
+    }
+
+    function q9() {
+      const N = getInput();
+      let table = "";
+      for (let i = 1; i <= 10; i++) {
+        table += `${N}*${i}=${N * i}\n`;
+      }
+      document.getElementById('output').textContent = table;
+    }
+  </script>
+</body>
+</html>
